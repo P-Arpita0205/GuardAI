@@ -8,16 +8,19 @@ services:
     rootDir: backend
     envVars:
       - key: GEMINI_API_KEY
-        sync: false # Set this in the Render dashboard
+        sync: false
 
   # 2. Dashboard (React Static Site)
   - type: web
     name: guardai-dashboard
     env: static
     buildCommand: npm install && npm run build
-    publishDir: dist
-    rootDir: dashboard
-    staticPublishCustomRoutes:
+    staticPublishCustomRoutes: # Render sometimes uses this or 'routes'
       - type: rewrite
         source: /*
         destination: /index.html
+    # Removing 'publishDir' and 'staticPublishCustomRoutes' if they error
+    # Trying the most compatible static site config:
+    # env: static
+    # buildCommand: npm install && npm run build
+    # publishDir: dist
