@@ -1,5 +1,4 @@
 services:
-  # 1. Backend (FastAPI)
   - type: web
     name: guardai-backend
     env: python
@@ -10,13 +9,11 @@ services:
       - key: GEMINI_API_KEY
         sync: false
 
-  # 2. Dashboard (React Static Site)
-  - type: static
+  - type: web
     name: guardai-dashboard
+    env: static
     buildCommand: npm install && npm run build
-    publishDir: dist
-    rootDir: dashboard
-    routes:
+    staticPublishCustomRoutes:
       - type: rewrite
         source: /*
         destination: /index.html
