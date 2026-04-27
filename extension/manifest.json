@@ -1,0 +1,28 @@
+{
+  "manifest_version": 3,
+  "name": "GuardAI - Fake Account Detector",
+  "version": "1.0",
+  "description": "Scan Instagram profiles for fake accounts, bots, and cyberstalkers using Gemini AI.",
+  "permissions": [
+    "storage",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://www.instagram.com/*",
+    "http://localhost:8000/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.instagram.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "icons": {
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
