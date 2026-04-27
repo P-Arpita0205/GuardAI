@@ -9,11 +9,11 @@ services:
       - key: GEMINI_API_KEY
         sync: false
 
-  - type: web
+  - type: static_site
     name: guardai-dashboard
-    env: static
     buildCommand: npm install && npm run build
-    # Set publishDir to 'dist' in the Render Dashboard after deployment
+    publishDir: dist
+    rootDir: dashboard
     routes:
       - type: rewrite
         source: /*
