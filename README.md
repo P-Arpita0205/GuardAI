@@ -8,8 +8,8 @@ GuardAI is an advanced security platform designed to detect malicious Instagram 
 - **🧠 Unified AI Pipeline**: NLP and Vision analysis in a single multi-modal call to Gemini.
 - **⚡ Smart Fallback**: Automatically switches to advanced behavioral simulation if API quotas are hit.
 - **🧩 Manifest V3 Extension**: Scans profiles directly within the Instagram web interface.
-- **📊 Interactive Dashboard**: Visualizes risk scores, intent analysis, and historical scans.
-- **🛡️ Explainable AI (XAI)**: Provides human-readable reasons for every risk assessment.
+- **🧪 Simulation Mode**: Pre-loaded samples in the dashboard for instant demonstration without live scraping.
+- **🛡️ Emergency Submission Mode**: Smart Fallback system for 100% uptime during demos.
 
 ---
 
@@ -36,10 +36,12 @@ GuardAI is an advanced security platform designed to detect malicious Instagram 
 2. **Install Dependencies**: `npm install`
 3. **Run Dev Server**: `npm run dev`
 
-### 3. Extension (Chrome)
-1. Open `chrome://extensions/`
-2. Enable **Developer Mode**.
-3. Click **Load Unpacked** and select the `/extension` folder.
+### 4. Simulation & Testing
+To demonstrate the system quickly without opening Instagram:
+1. Open the **Dashboard** (`http://localhost:5173`).
+2. You will see three **Sample Profiles** (Safe, Suspicious, and Attacker).
+3. Click **"Scan with GuardAI"** on any sample.
+4. The system will process the sample through the Backend and display the live AI (or Fallback) analysis.
 
 ---
 
@@ -62,6 +64,18 @@ GuardAI includes a **Smart Fallback** system. If the Gemini API hits a rate limi
 - Bio keyword analysis
 - Profile completeness
 - Emoji density
+
+---
+
+## 🚀 One-Click Deployment (Render)
+
+1. **Push to GitHub**: Upload your project to a GitHub repository.
+2. **Connect to Render**: Log in to [Render.com](https://render.com) and click **"New" -> "Blueprint"**.
+3. **Select Repo**: Choose your GuardAI repository.
+4. **Environment Variables**:
+   - In the Render Dashboard, go to your `guardai-backend` service.
+   - Add the `GEMINI_API_KEY` to the **Environment** tab.
+5. **Update Extension**: Once deployed, copy your backend URL (e.g., `https://guardai-backend.onrender.com`) and update it in the Extension's `content.js`.
 
 ---
 
