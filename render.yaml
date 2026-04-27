@@ -13,8 +13,7 @@ services:
     name: guardai-dashboard
     env: static
     buildCommand: npm install && npm run build
-    publishDir: dist
-    rootDir: dashboard
+    # Set publishDir to 'dist' in the Render Dashboard after deployment
     routes:
       - type: rewrite
         source: /*
